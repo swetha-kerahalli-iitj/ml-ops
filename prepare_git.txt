@@ -1,0 +1,50 @@
+For my WSL setup, sshkeys were suddenly stopping to work suddenly, again and again.
+
+The problem:
+ssh -T git@github.com
+
+git@github.com: Permission denied (publickey).
+
+
+Solution: It seems to be some problem with ssh-agent, simply re-adding my sshkeys to agent seem to  solving the issue. And, I did not have to add public keys to my github profile.
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/tidhamecha2-2
+ssh -T git@github.com
+Hi tidhamecha2! You've successfully authenticated, but GitHub does not provide shell access.
+
+1. Take classification example from https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html#sphx-glr-auto-examples-classification-plot-digits-classification-py
+
+2. Create a new repo and add this example to it
+3. Create necessary requirements.txt file and push to the repo.
+4. How would you ensure that code would indeed work on other machines?
+
+setting up some linux-like environment (native linux installation, wsl, virtual box but not gitbash or cygwin)
+github ssh keys setup https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/testing-your-ssh-connection
+I will be asking randomly few folks to show the output of `ssh -T git@github.com` as a test of ssh key set up
+
+
+
+
+Github getting started commands:
+
+Fork repo https://github.com/IBM-Cloud/get-started-python
+
+git clone https://github.com/tidhamecha2/get-started-python.git
+<change the "tidhamecha2" to your github id>
+git clone https://github.com/swetha-kerahalli-iitj/ml-ops/get-started-python.git
+<make changes to some files>
+
+git add <that changed file>
+git commit -m "some meaningful message"
+git push
+
+Go to github and check if the commit is reflected there or not?
+
+Conda instructions for Today's class
+
+Install miniconda https://docs.conda.io/en/latest/miniconda.html
+create conda environment: conda create -n "my_conda_env" python=3.6.9
+activate conda environment: conda activate my_conda_env
+install dependencies: pip install -r requirements.txt
+run application: python hello.py
